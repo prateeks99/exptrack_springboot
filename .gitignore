@@ -29,5 +29,8 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+# Config File
+application.properties
+
 ### VS Code ###
 .vscode/
