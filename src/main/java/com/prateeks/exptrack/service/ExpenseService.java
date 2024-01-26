@@ -13,16 +13,16 @@ public class ExpenseService {
     @Autowired
     DynamoDBRepo dynamoDBRepo;
 
-    public List<Expense> getAllExpense() {
-        return dynamoDBRepo.getAll();
+    public List<Expense> getAllExpense(String userId) {
+        return dynamoDBRepo.getAll(userId);
     }
 
     public List<Expense> getExpenseByCategory(String category){
         return dynamoDBRepo.getByCategory(category);
     }
 
-    public Expense getExpenseById(String expenseId) {
-        return dynamoDBRepo.getExpenseById(expenseId);
+    public Expense getExpenseById(String expenseId, String userId) {
+        return dynamoDBRepo.getExpenseById(expenseId, userId);
     }
 
     public Expense addExpense(Expense expense) {
@@ -33,8 +33,8 @@ public class ExpenseService {
         return dynamoDBRepo.update(expenseId, expense);
     }
 
-    public String deleteExpense(String expenseId) {
-        return dynamoDBRepo.delete(expenseId);
+    public String deleteExpense(String userId, String expenseId) {
+        return dynamoDBRepo.delete(userId, expenseId);
     }
 
 }
